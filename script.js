@@ -84,7 +84,7 @@ document.addEventListener("click", (e) => {
 const getWeatherByCityName = async (city = "ahmedabad") => {
     try {
         const response = await fetch(
-            `http://api.weatherapi.com/v1/forecast.json?key=${api_key}=${city}&days=7&aqi=no&alerts=no`
+            `https://api.weatherapi.com/v1/forecast.json?key=${api_key}=${city}&days=7&aqi=no&alerts=no`
         );
         const data = await response.json();
         // Updating the current weather data:-
@@ -123,7 +123,7 @@ getWeatherByCityName(); // Fetching the weather data for the default city:-
 // Fetching the weather data from the API using the current_location:-
 const getWeatherByCurrentLocation = async (latitude, longitude) => {
     try {
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=7df05d21f7544cdfaa991117252004&q=${latitude},${longitude}&days=7&aqi=no&alerts=no`);
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7df05d21f7544cdfaa991117252004&q=${latitude},${longitude}&days=7&aqi=no&alerts=no`);
         const data = await response.json();
         console.log(data);
 
