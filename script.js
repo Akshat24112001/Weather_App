@@ -13,7 +13,7 @@ const weatherDescription = document.getElementById("weather_description");
 const cardContainer = document.getElementById("card_container");
 const dropdownCities = document.getElementById("dropdown_cities");
 
-const api_key="7df05d21f7544cdfaa991117252004&q";
+const api_key="7df05d21f7544cdfaa991117252004";
 
 // Declaring empty array to store the city names for dropdown_menu:-
 let cityNamesList = JSON.parse(localStorage.getItem("cityNamesList")) || [];
@@ -83,9 +83,8 @@ document.addEventListener("click", (e) => {
 // Fetching the weather data from the API using the city name:-
 const getWeatherByCityName = async (city = "ahmedabad") => {
     try {
-        const response = await fetch(
-            `https://api.weatherapi.com/v1/forecast.json?key=${api_key}=${city}&days=7&aqi=no&alerts=no`
-        );
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${city}&days=7&aqi=no&alerts=no`);
+
         const data = await response.json();
         // Updating the current weather data:-
         const whiteSpace_index = data.location.localtime.indexOf(" ");
